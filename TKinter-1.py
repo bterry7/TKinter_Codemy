@@ -41,6 +41,7 @@ myButton = Button(root,text="Enter Your Name",padx=50,pady=50,command=myClick,fg
 # ... etc. Check documentation
 # Do not use () for the command. If you do, it will treat as a function and count it as already run (i.e. the text already appears without clicking)
 # By not using (), it is "attached" to the button per run cycle. Or somethign
+# Have to use "command = lambda: fun()"
 myButton.grid(row=1,column=1)
 
 
