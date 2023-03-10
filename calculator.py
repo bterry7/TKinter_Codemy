@@ -4,7 +4,25 @@ os.system('clear') # use whatever command is needed for that instance; gitbash u
 from tkinter import *
 
 def num_click(number):
-    e.insert(0,number)
+    cur_num = e.get()
+    e.delete(0,END)
+    e.insert(0,str(cur_num) + str(number))
+
+def clear():
+    e.delete(0,END)
+
+# Probably not the best, but it's fine
+def add():
+    first_number = e.get()
+    global f_num 
+    f_num = int(first_number)
+    e.delete(0,END)
+
+def equal():
+    second_num = e.get()
+    e.delete(0,END)
+    e.insert(0,int(second_num) + f_num)
+
     
 
 root = Tk()
@@ -25,9 +43,9 @@ button_7 = Button(root,text="7",padx=40,pady=20,command=lambda: num_click(7))
 button_8 = Button(root,text="8",padx=40,pady=20,command=lambda: num_click(8))
 button_9 = Button(root,text="9",padx=40,pady=20,command=lambda: num_click(9))
 button_0 = Button(root,text="0",padx=40,pady=20,command=lambda: num_click(0))
-button_add = Button(root,text="+",padx=39,pady=20)
-button_equal = Button(root,text="=",padx=91,pady=20)
-button_clear = Button(root,text="Clear",padx=79,pady=20)
+button_add = Button(root,text="+",padx=39,pady=20,command=add)
+button_equal = Button(root,text="=",padx=91,pady=20,command=equal)
+button_clear = Button(root,text="Clear",padx=79,pady=20,command=clear)
 
 
 # Place buttons
